@@ -14,7 +14,7 @@ VT>V6P AND VT>V7P AND VT>V8P AND VT>V9P AND VT>V10P;
 C1:=C>REF(C,1)*1.03;
 P1:=COUNT((H-L)/L<0.07,10)>5;
 C2:=C>MA(C,10);
-{XG:C1  AND VC AND P1 ;} {成交量>前10日下跌日跌成交量，中阳线，前10日紧凑振幅不大}
+KDZD:=C1  AND VC AND P1 ; {成交量>前10日下跌日跌成交量，中阳线，前10日紧凑振幅不大}
 
 HP10:=HHV(REF(H,1),10);
 HP20:=HHV(REF(H,1),20);
@@ -24,4 +24,4 @@ HP50:=HHV(REF(H,1),50);
 HP60:=HHV(REF(H,1),60);
 BK:=C>HP10 || C>HP20 || C>HP30 || C>HP40 || C>HP50 || C>HP60; {收盘突破N日新高}
 TK:=L>REF(H,1)+0.001 ; {跳空高开}
-XG:(C1  AND VC AND P1) OR BK OR TK;
+XG:KDZD OR BK OR TK;
